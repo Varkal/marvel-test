@@ -1,3 +1,13 @@
 <div>
-    TOTO CREATOR PAGE
+    <ul class="list-group list creator-list ">
+        <li class="row list-group-item list-element creator-list-element" ng-repeat="creator in creators | orderBy : fullName" ng-if='creator.fullName != ""'>
+                <div class="">{{creator.fullName}}</div>
+                <div class="pull-right">
+                <img class="" src="{{creator.thumbnail.path}}/standard_medium.{{creator.thumbnail.extension}}">
+                </div>
+        </li>
+    </ul>
+    <div class="pagination-zone">
+        <pagination total-items="total" items-per-page="creatorsByPage" ng-model="currentPage" ng-change="getCreators()" max-size="5" ></pagination>
+    </div>
 </div>

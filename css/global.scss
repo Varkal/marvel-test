@@ -6,11 +6,23 @@ $mainColor13 : lighten($mainColor11, 10%);
 
 $mainColor21 : #FF0000;
 $mainColor22 : darken($mainColor21, 10%);
-$mainColor23 : lighten($mainColor11, 10%);
+$mainColor23 : lighten($mainColor21, 10%);
 
 $mainColor31 : #FFFFFF;
 $mainColor32 : darken($mainColor31, 10%);
-$mainColor33 : lighten($mainColor11, 10%);
+$mainColor33 : lighten($mainColor31, 10%);
+
+
+// ------------------------ //
+
+
+// ---- SIZES DEF ZONE ---- //
+
+
+$mainPadding : 10px;
+$navbarHeigth : 50px;
+$footerHeigth : 15px;
+
 
 
 // ------------------------ //
@@ -29,12 +41,29 @@ html, body{
     padding: 0;
 }
 
+// ------------------------ //
+
 .navbar{
-    border-radius: 0;
+    height:$navbarHeigth;
+    padding: 0;
+    > *{
+        height: $navbarHeigth;
+    }
     img{
-        height: 50px;
+        height: 100%;
+    }
+    .navbar-header{
+        float: left;
     }
     .navbar-nav {
+        margin: 0;
+        li{
+            height: 100%;
+            float: left;
+            a {
+                padding:15px;
+            }
+        }
         .active {
             color: $mainColor31;
         }
@@ -42,16 +71,21 @@ html, body{
 }
 
 .main{
-    div {
-        padding: 0 10px;
+    > div {
+        overflow: scroll;
+        padding: $navbarHeigth $mainPadding $footerHeigth $mainPadding;
+        height: 100%;
+        width: 100%;
     }
 }
 
-footer{
-    position: absolute;
-    bottom: 0;
+.list{
+    margin:0;
+}
 
+footer{
     width: 100%;
+    height:$footerHeigth;
 
     text-align: center;
 

@@ -1,4 +1,4 @@
-angular.module("marvel_test", ["ui.router", "marvel_test.controllers", "marvel_test.services"])
+angular.module("marvel_test", ["ui.router", "ui.bootstrap", "marvel_test.controllers", "marvel_test.services"])
     .config(function($stateProvider, $urlRouterProvider){
 
         $stateProvider

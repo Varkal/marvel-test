@@ -8,22 +8,59 @@ html, body {
   padding: 0; }
 
 .navbar {
-  border-radius: 0; }
-  .navbar img {
+  height: 50px;
+  padding: 0; }
+  .navbar > * {
     height: 50px; }
-  .navbar .navbar-nav .active {
-    color: #FFFFFF; }
+  .navbar img {
+    height: 100%; }
+  .navbar .navbar-header {
+    float: left; }
+  .navbar .navbar-nav {
+    margin: 0; }
+    .navbar .navbar-nav li {
+      height: 100%;
+      float: left; }
+      .navbar .navbar-nav li a {
+        padding: 15px; }
+    .navbar .navbar-nav .active {
+      color: #FFFFFF; }
 
-.main div {
-  padding: 0 10px; }
+.main > div {
+  overflow: scroll;
+  padding: 50px 10px 15px 10px;
+  height: 100%;
+  width: 100%; }
+
+.list {
+  margin: 0; }
 
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  height: 15px;
   text-align: center;
   font-size: 80%;
   color: #e6e6e6;
   background: #000000; }
+
+.pagination-zone {
+  text-align: center; }
+  .pagination-zone li > a {
+    color: #000000; }
+    .pagination-zone li > a:hover {
+      background: #e6e6e6;
+      border-color: #cc0000; }
+  .pagination-zone .active a {
+    background: #FF0000;
+    border-color: #cc0000; }
+    .pagination-zone .active a:hover {
+      background: #FF0000;
+      border-color: #cc0000; }
+
+.creator-list .creator-list-element {
+  line-height: 100px; }
+  .creator-list .creator-list-element * {
+    display: inline-block;
+    vertical-align: middle; }
 
 /*# sourceMappingURL=style.css.map */
