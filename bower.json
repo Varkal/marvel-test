@@ -26,6 +26,7 @@
     "lodash": "~3.10.1",
     "bootstrap": "~3.3.5",
     "angular-ui-router": "~0.2.15",
-    "angular-bootstrap": "~0.13.3"
+    "angular-bootstrap": "~0.13.3",
+    "spinkit": "~1.2.1"
   }
 }

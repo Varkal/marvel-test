@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title></title>
         <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css"/>
         <link rel="stylesheet" href="css/style.css"/>
@@ -19,6 +20,9 @@
                     <li><a ui-sref="comic" ui-sref-active="active">Comics</a></li>
                 </ul>
             </nav>
+            <div class="loader" ng-if="loading">
+                <div class="sk-rotating-plane"></div>
+            </div>
             <ui-view class="main">
 
             </ui-view>
