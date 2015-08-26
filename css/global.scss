@@ -1,0 +1,62 @@
+// ---- COLOR DEF ZONE ---- //
+
+$mainColor11 : #000000;
+$mainColor12 : darken($mainColor11, 10%);
+$mainColor13 : lighten($mainColor11, 10%);
+
+$mainColor21 : #FF0000;
+$mainColor22 : darken($mainColor21, 10%);
+$mainColor23 : lighten($mainColor11, 10%);
+
+$mainColor31 : #FFFFFF;
+$mainColor32 : darken($mainColor31, 10%);
+$mainColor33 : lighten($mainColor11, 10%);
+
+
+// ------------------------ //
+
+
+// ---- RESET CSS ZONE ---- //
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+.container-fluid{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.navbar{
+    border-radius: 0;
+    img{
+        height: 50px;
+    }
+    .navbar-nav {
+        .active {
+            color: $mainColor31;
+        }
+    }
+}
+
+.main{
+    div {
+        padding: 0 10px;
+    }
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 80%;
+    color: $mainColor32;
+    background: $mainColor11;
+}
+//

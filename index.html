@@ -8,8 +8,23 @@
     </head>
     <body ng-app="marvel_test">
 
-        <div ui-view>
+        <div class="container-fluid">
+            <nav class="navbar navbar-inverse">
+                <div class="navbar-header">
+                    <img src="img/marvel-logo.png"/>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="home" ui-sref-active="active">Home</a></li>
+                    <li><a ui-sref="creator" ui-sref-active="active">Creators</a></li>
+                    <li><a ui-sref="comic" ui-sref-active="active">Comics</a></li>
+                </ul>
+            </nav>
+            <ui-view class="main">
 
+            </ui-view>
+            <footer>
+                All images and contents are property of Marvel Comics
+            </footer>
         </div>
 
         <!-- LIBS -->
