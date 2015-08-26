@@ -1,0 +1,29 @@
+{
+  "name": "marvel-test",
+  "version": "0.1.0",
+  "authors": [
+    "Romain MOREAU <moreau.romain83@gmail.com>"
+  ],
+  "description": "Test of Marvel API",
+  "main": "index.html",
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "Marvel"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.4",
+    "lodash": "~3.10.1",
+    "bootstrap": "~3.3.5"
+  }
+}
