@@ -1,9 +1,6 @@
 angular.module("marvel_test.services", [])
-    .constant("key", "c1e15e338e12e2cae0d61b0c97c9873f")
+    .constant("key", "c1e15e338e12e2cae0d61b0c97c9873f")//Public Key
     .service("marvelApi", function($http, key, $q){
-        var self = this;
-
-
         /**
          * Builder for a request to Marvel Comics API
          * @param resource Shorthand to specify the resource
@@ -83,20 +80,6 @@ angular.module("marvel_test.services", [])
 
             return request;
 
-
-
-
-        }
-
-        this.get = function(){
-            $http.get("http://gateway.marvel.com/v1/public/comics?apikey="+key).then(
-                function success(result){
-                    console.log(result)
-                },
-                function error(error){
-                    console.log(error)
-                }
-            )
-        }
+        };
     })
 ;
