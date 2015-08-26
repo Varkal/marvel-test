@@ -50,6 +50,26 @@ angular.module("marvel_test.services", [])
             };
 
             /**
+             * Syntaxic sugar to queryParam("limit", value)
+             * @param value The value of the limit
+             * @returns {*}
+             */
+            request.limit = function(value){
+                request.queryParam("limit", value);
+                return request
+            };
+
+            /**
+             * Syntaxic sugar to queryParam("offset", value)
+             * @param value The value of the offset
+             * @returns {*}
+             */
+            request.offset = function(value){
+                request.queryParam("offset", value);
+                return request
+            };
+
+            /**
              * Build the URL from the request informations and exec the request
              * @returns {*} A Promise
              */
