@@ -5,7 +5,7 @@
         </div>
         <div class="col-xs-12 col-sm-10 col-md-10 col-text">
             <h1>{{creator.fullName}}</h1>
-            <accordion close-others="true">
+            <accordion>
                 <accordion-group ng-if="creator.series.available > 0">
                     <accordion-heading>
                         <div ng-click="initialLoading('series')">Series ({{creator.series.available}})</div>

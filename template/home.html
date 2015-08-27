@@ -1,9 +1,9 @@
 <div class="home row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 center">
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 center">
             <img src="{{ironMan.thumbnail.path}}/portrait_incredible.{{ironMan.thumbnail.extension}}">
         </div>
-        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+        <div class="col-xs-12 col-sm-8 col-md-10 col-lg-10">
             <h1>What is this ?</h1>
 
             <p>This website is a graphical interface to vizualize a part of the datas provided by <a
@@ -36,7 +36,10 @@
         </div>
     </div>
     <div class="row frieze">
-        <h1>You aren't sure ? GO READ THIS</h1>
+        <h1>You aren't sure ?</h1>
+
+        <h1>GO READ THIS</h1>
+
         <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1" ng-repeat="comic in comics">
             <a ui-sref="comic_single({id:comic.id})">
             <img src="{{comic.thumbnail.path}}/portrait_incredible.{{comic.thumbnail.extension}}">

@@ -105,8 +105,11 @@ footer {
     font-size: 190%; }
 
 .frieze {
+  margin-left: -25px;
   text-align: center; }
 
+@media (max-width: 768px) {
+  margin-left: 0; }
 .creator-list .creator-list-element {
   line-height: 100px; }
   .creator-list .creator-list-element a {

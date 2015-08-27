@@ -9,5 +9,10 @@
 }
 
 .frieze{
+    margin-left:-25px;
     text-align: center;
+}
+
+@media (max-width: 768px){
+    margin-left:0;
 }
