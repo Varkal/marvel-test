@@ -44,7 +44,15 @@ You can use the pager at the bottom of the page to see the next 20 guys/comics
 ### Detailed Page
 
 Informations are splited in accordion sections used to lazy-load only the information needed, and inside those sections, 
-list are paginated 
+list are paginated
+
+ 
+## Good example page 
+
+The informations in the API aren't perfect, so I propose you example of page with interesting informations :   
+
+A creator with many informations ? [Aaron Lopresti](http://varkal.com/marvel/#/creator/540)
+A comics with many informations ? [ACTS OF VENGEANCE CROSSOVERS OMNIBUS (Hardcover)](http://varkal.com/marvel/#/comic/29317)
 
 
 
