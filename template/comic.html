@@ -1,4 +1,25 @@
 <div>
+    <div class="button-zone">
+        <div class="btn-group">
+            <button class="btn btn-default" ng-click="resetForm()" ng-if="filterVisible">
+                <i class="glyphicon glyphicon-repeat"></i>
+            </button>
+            <button class="btn btn-default" ng-click="toggleFilterVisible()">
+                <i class="glyphicon"
+                   ng-class="{'glyphicon-remove':filterVisible, 'glyphicon-filter':!filterVisible}"></i>
+            </button>
+        </div>
+    </div>
+    <div ng-if="filterVisible">
+        <form>
+            <div class="form-group">
+                <label for="titleField">Title</label>
+                <input class="form-control" id="titleField" type="text" placeholder="Title"
+                       ng-model="filterObject.title"/>
+            </div>
+            <button class="btn btn-block btn-custom" ng-click="filter()">Filter</button>
+        </form>
+    </div>
     <ul class="list-group list comic-list ">
         <li class="row list-group-item list-element comic-list-element" ng-repeat="comic in comics" ng-if='comic.title != ""'>
             <a ui-sref="comic_single({id:comic.id})">

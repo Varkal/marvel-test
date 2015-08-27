@@ -4,27 +4,27 @@ angular.module("marvel_test.controllers", ["marvel_test.services"])
     })
     .controller("CreatorCtrl", function ($scope, marvelApi, $rootScope) {
 
-        $scope.filterVisible=false;
+        $scope.filterVisible = false;
 
         $scope.currentPage    = 1;
         $scope.creatorsByPage = 20;
 
         $scope.defaultFilterObject = {
-            firstName : "",
+            firstName: "",
             lastName : ""
         };
 
         $scope.filterObject = _.clone($scope.defaultFilterObject);
 
-        $scope.toggleFilterVisible = function(){
+        $scope.toggleFilterVisible = function () {
             $scope.filterVisible = !$scope.filterVisible;
         };
 
-        $scope.resetForm = function(){
+        $scope.resetForm = function () {
             $scope.filterObject = _.clone($scope.defaultFilterObject);
         };
 
-        $scope.filter = function(){
+        $scope.filter = function () {
             $scope.currentPage = 1;
             $scope.getCreators();
         };
@@ -32,11 +32,11 @@ angular.module("marvel_test.controllers", ["marvel_test.services"])
         $scope.getCreators = function () {
             console.log("Request");
             $rootScope.loading = true;
-            var request = marvelApi.Request("creators").queryParam("orderBy", "firstName").limit($scope.creatorsByPage).offset(($scope.currentPage - 1) * $scope.creatorsByPage);
-            if($scope.filterObject.firstName != ""){
+            var request        = marvelApi.Request("creators").queryParam("orderBy", "firstName").limit($scope.creatorsByPage).offset(($scope.currentPage - 1) * $scope.creatorsByPage);
+            if ($scope.filterObject.firstName != "") {
                 request.queryParam("firstNameStartsWith", $scope.filterObject.firstName)
             }
-            if($scope.filterObject.lastName != ""){
+            if ($scope.filterObject.lastName != "") {
                 request.queryParam("lastNameStartsWith", $scope.filterObject.lastName)
             }
             request.exec().then(
@@ -63,11 +63,11 @@ angular.module("marvel_test.controllers", ["marvel_test.services"])
 
         $scope.load = function (type, page) {
             $rootScope.loading = true;
-            marvelApi.Request("creators").pathParam($stateParams.id).pathParam(type).limit($scope.elementByPage).offset($scope.elementByPage*(page-1)).exec().then(
+            marvelApi.Request("creators").pathParam($stateParams.id).pathParam(type).limit($scope.elementByPage).offset($scope.elementByPage * (page - 1)).exec().then(
                 function onSuccess(result) {
                     $scope.datas[type] = {
-                        elements:result.data.data.results,
-                        page:page
+                        elements: result.data.data.results,
+                        page    : page
                     };
                     console.log(result.data);
                     $rootScope.loading = false;
@@ -103,17 +103,43 @@ angular.module("marvel_test.controllers", ["marvel_test.services"])
 
     })
     .controller("ComicCtrl", function ($scope, marvelApi, $rootScope) {
-        $scope.currentPage    = 1;
+        $scope.currentPage  = 1;
         $scope.comicsByPage = 20;
+
+        $scope.filterVisible = false;
+
+        $scope.defaultFilterObject = {
+            title: ""
+        };
+
+        $scope.filterObject = _.clone($scope.defaultFilterObject);
+
+        $scope.toggleFilterVisible = function () {
+            $scope.filterVisible = !$scope.filterVisible;
+        };
+
+        $scope.resetForm = function () {
+            $scope.filterObject = _.clone($scope.defaultFilterObject);
+        };
+
+        $scope.filter = function () {
+            $scope.currentPage = 1;
+            $scope.getComics();
+        };
 
         $scope.getComics = function () {
             console.log("Request");
             $rootScope.loading = true;
-            marvelApi.Request("comics").queryParam("orderBy", "title").limit($scope.comicsByPage).offset(($scope.currentPage - 1) * $scope.comicsByPage).exec().then(
+
+            var request = marvelApi.Request("comics").queryParam("orderBy", "title").limit($scope.comicsByPage).offset(($scope.currentPage - 1) * $scope.comicsByPage)
+            if($scope.filterObject.title != ""){
+                request.queryParam("titleStartsWith", $scope.filterObject.title);
+            }
+            request.exec().then(
                 function onSuccess(result) {
                     var datas          = result.data;
                     console.log(datas);
-                    $scope.comics    = datas.data.results;
+                    $scope.comics      = datas.data.results;
                     $scope.total       = datas.data.total;
                     $rootScope.loading = false;
                 },
@@ -133,11 +159,11 @@ angular.module("marvel_test.controllers", ["marvel_test.services"])
 
         $scope.load = function (type, page) {
             $rootScope.loading = true;
-            marvelApi.Request("comics").pathParam($stateParams.id).pathParam(type).limit($scope.elementByPage).offset($scope.elementByPage*(page-1)).exec().then(
+            marvelApi.Request("comics").pathParam($stateParams.id).pathParam(type).limit($scope.elementByPage).offset($scope.elementByPage * (page - 1)).exec().then(
                 function onSuccess(result) {
                     $scope.datas[type] = {
-                        elements:result.data.data.results,
-                        page:page
+                        elements: result.data.data.results,
+                        page    : page
                     };
                     console.log(result.data);
                     $rootScope.loading = false;
@@ -159,12 +185,12 @@ angular.module("marvel_test.controllers", ["marvel_test.services"])
             console.log("Request");
             marvelApi.Request("comics").pathParam(id).exec().then(
                 function onSuccess(result) {
-                    var datas      = result.data;
+                    var datas    = result.data;
                     console.log(datas);
                     $scope.comic = datas.data.results[0];
-                    $scope.comic.creators.items.forEach(function(creator){
+                    $scope.comic.creators.items.forEach(function (creator) {
                         var uriSplitted = creator.resourceURI.split("/");
-                        creator.id = uriSplitted[(uriSplitted.length)-1]; //Get the ID
+                        creator.id      = uriSplitted[(uriSplitted.length) - 1]; //Get the ID
                     })
                 },
                 function onError(error) {
