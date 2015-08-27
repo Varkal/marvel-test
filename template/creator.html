@@ -1,27 +1,33 @@
 <div>
     <div class="button-zone">
-        <button class="btn btn-default" ng-click="resetForm()" ng-if="filterVisible">
-            <i class="glyphicon glyphicon-repeat"></i>
-        </button>
-        <button class="btn btn-default" ng-click="toggleFilterVisible()">
-            <i class="glyphicon" ng-class="{'glyphicon-remove':filterVisible, 'glyphicon-filter':!filterVisible}"></i>
-        </button>
+        <div class="btn-group">
+            <button class="btn btn-default" ng-click="resetForm()" ng-if="filterVisible">
+                <i class="glyphicon glyphicon-repeat"></i>
+            </button>
+            <button class="btn btn-default" ng-click="toggleFilterVisible()">
+                <i class="glyphicon"
+                   ng-class="{'glyphicon-remove':filterVisible, 'glyphicon-filter':!filterVisible}"></i>
+            </button>
+        </div>
     </div>
     <div ng-if="filterVisible">
         <form>
             <div class="form-group">
                 <label for="firstNameField">First Name</label>
-                <input class="form-control" id="firstNameField" type="text" placeholder="First Name" ng-model="filterObject.firstName"/>
+                <input class="form-control" id="firstNameField" type="text" placeholder="First Name"
+                       ng-model="filterObject.firstName"/>
             </div>
             <div class="form-group">
                 <label for="lastNameField">Last Name</label>
-                <input class="form-control" id="lastNameField" type="text" placeholder="Last Name" ng-model="filterObject.lastName"/>
+                <input class="form-control" id="lastNameField" type="text" placeholder="Last Name"
+                       ng-model="filterObject.lastName"/>
             </div>
             <button class="btn btn-block btn-custom" ng-click="filter()">Filter</button>
         </form>
     </div>
     <ul class="list-group list creator-list ">
-        <li class="row list-group-item list-element creator-list-element" ng-repeat="creator in creators | orderBy : fullName" ng-if='creator.fullName != ""'>
+        <li class="row list-group-item list-element creator-list-element"
+            ng-repeat="creator in creators | orderBy : fullName" ng-if='creator.fullName != ""'>
             <a ui-sref="creator_single({id:creator.id})">
                 <div class="">{{creator.fullName}}</div>
                 <div class="pull-right">
@@ -31,6 +37,7 @@
         </li>
     </ul>
     <div class="pagination-zone">
-        <pagination total-items="total" items-per-page="creatorsByPage" ng-model="currentPage" ng-change="getCreators()" max-size="5" ></pagination>
+        <pagination total-items="total" items-per-page="creatorsByPage" ng-model="currentPage" ng-change="getCreators()"
+                    max-size="5"></pagination>
     </div>
 </div>

@@ -133,5 +133,26 @@ footer{
 }
 
 .button-zone{
+    margin: 10px 0;
     text-align: right;
+}
+
+
+.pagination-zone{
+    text-align: center;
+    li > a {
+        color: $mainColor11;
+        &:hover{
+            background: $mainColor32;
+            border-color: $mainColor22;
+        }
+    }
+    .active a{
+        background: $mainColor21;
+        border-color: $mainColor22;
+        &:hover{
+            background: $mainColor21;
+            border-color: $mainColor22;
+        }
+    }
 }

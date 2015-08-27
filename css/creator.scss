@@ -6,26 +6,6 @@ $creatorSingleMarginTop : 10px;
 // ------------------------ //
 
 
-
-.pagination-zone{
-    text-align: center;
-    li > a {
-        color: $mainColor11;
-        &:hover{
-            background: $mainColor32;
-            border-color: $mainColor22;
-        }
-    }
-    .active a{
-        background: $mainColor21;
-        border-color: $mainColor22;
-        &:hover{
-            background: $mainColor21;
-            border-color: $mainColor22;
-        }
-    }
-}
-
 .creator-list{
     .creator-list-element{
         line-height: 100px; //Size of medium square from Marvel API
