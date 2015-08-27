@@ -1,6 +1,27 @@
 angular.module("marvel_test.controllers", ["marvel_test.services"])
-    .controller("HomeCtrl", function () {
-
+    .controller("HomeCtrl", function ($scope, marvelApi, $rootScope) {
+        var ironManId = 1009368;
+        $rootScope.loading = true;
+        marvelApi.Request("characters").pathParam(ironManId).exec().then(
+            function onSuccess(result){
+                $scope.ironMan = result.data.data.results[0];
+                console.log($scope.ironMan);
+                marvelApi.Request("characters").pathParam(ironManId).pathParam("comics").limit(24).exec().then(
+                    function onSuccess(result) {
+                        $scope.comics = result.data.data.results;
+                        $rootScope.loading = false;
+                    },
+                    function onError(error) {
+                        alert(JSON.stringify(error));
+                        $rootScope.loading = false;
+                    }
+                )
+            },
+            function onError(error){
+                alert(JSON.stringify(error));
+                $rootScope.loading = false;
+            }
+        )
     })
     .controller("CreatorCtrl", function ($scope, marvelApi, $rootScope) {
 

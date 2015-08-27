@@ -1,3 +1,46 @@
-<div>
-    TOTO HOME PAGE
+<div class="home row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 center">
+            <img src="{{ironMan.thumbnail.path}}/portrait_incredible.{{ironMan.thumbnail.extension}}">
+        </div>
+        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+            <h1>What is this ?</h1>
+
+            <p>This website is a graphical interface to vizualize a part of the datas provided by <a
+                    href="http://developper.marvel.com">the Marvel Comics API</a>.<br/>
+                For the moment, you can browse comic book list and comic book creator list, and see some information
+                about
+                it and filter them with ome basics criterias like name or title
+            </p>
+
+            <h1>What are the stack ?</h1>
+
+            <p>This website has been created with <a href="https://angularjs.org/">AngularJS</a>, <a
+                    href="http://getbootstrap.com/">Bootstrap</a>, <a href="http://angular-ui.github.io/">Angular-Ui</a>,
+                <a href="https://lodash.com/">Lodash</a> and <a href="http://tobiasahlin.com/spinkit/">Spinkit</a>
+            </p>
+
+            <h1>Where are the sources ?</h1>
+
+            <p>The source code of this website is <a href="http://opensource.org/licenses/MIT">MIT licensed</a> and
+                visible
+                and downloadable on <a href="https://github.com/Varkal/marvel-test">Github</a>
+            </p>
+
+            <h1>Why a picture of Iron Man ?</h1>
+
+            <p>It's very simple. Because it's the best. I know it, he know it and now, your know it too. It's
+                unnegociable.<br/>
+                Eventually, if you are very nice, I can accept Spider-Man as an equal.
+            </p>
+        </div>
+    </div>
+    <div class="row frieze">
+        <h1>You aren't sure ? GO READ THIS</h1>
+        <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1" ng-repeat="comic in comics">
+            <a ui-sref="comic_single({id:comic.id})">
+            <img src="{{comic.thumbnail.path}}/portrait_incredible.{{comic.thumbnail.extension}}">
+            </a>
+        </div>
+    </div>
 </div>

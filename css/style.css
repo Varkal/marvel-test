@@ -80,6 +80,9 @@ footer {
   margin: 10px 0;
   text-align: right; }
 
+.center {
+  text-align: center; }
+
 .pagination-zone {
   text-align: center; }
   .pagination-zone li > a {
@@ -93,6 +96,16 @@ footer {
     .pagination-zone .active a:hover {
       background: #FF0000;
       border-color: #cc0000; }
+
+.home {
+  margin-left: 0; }
+  .home div {
+    padding-top: 10px; }
+  .home h1 {
+    font-size: 190%; }
+
+.frieze {
+  text-align: center; }
 
 .creator-list .creator-list-element {
   line-height: 100px; }
