@@ -28,6 +28,7 @@
     "angular-ui-router": "~0.2.15",
     "angular-bootstrap": "~0.12.0",
     "spinkit": "~1.2.1",
-    "angular-sanitize": "~1.4.4"
+    "angular-sanitize": "~1.4.4",
+    "angular-konami": "https://github.com/lucasconstantino/angular-konami.git#~0.0.2"
   }
 }

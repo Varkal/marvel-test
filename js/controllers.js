@@ -1,27 +1,48 @@
 angular.module("marvel_test.controllers", ["marvel_test.services"])
     .controller("HomeCtrl", function ($scope, marvelApi, $rootScope) {
-        var ironManId = 1009368;
+
+        $scope.ironMan = {
+            id:1009368,
+            title:"Iron Man",
+            text:"It's very simple. <br/>Because he's the best. I know it, he knows it, my girlfriend, my mother and my sister know it and now, you know it too. It's unnegociable.<br/> " +
+            "Eventually, if you are very nice, I can accept Spider-Man as an equal. :-)"
+        };
+
+        $scope.doctorDoom = {
+            id:1009281,
+            title:"Doctor Doom",
+            text:"Because he's the coolest evil character in the Marvel Universe. <br/>" +
+            "And you know the Konami Code. So, I think you are a cheater and an evil people...like Doctor Doom ! :-)<br/>" +
+            "NB : Obviously, I refer to the comics character and not the one we can see in this <a href='https://www.youtube.com/watch?v=e-BVs-KCSiA'>horrible movie</a>."
+        };
+
         $rootScope.loading = true;
-        marvelApi.Request("characters").pathParam(ironManId).exec().then(
-            function onSuccess(result){
-                $scope.ironMan = result.data.data.results[0];
-                console.log($scope.ironMan);
-                marvelApi.Request("characters").pathParam(ironManId).pathParam("comics").limit(24).exec().then(
-                    function onSuccess(result) {
-                        $scope.comics = result.data.data.results;
-                        $rootScope.loading = false;
-                    },
-                    function onError(error) {
-                        alert(JSON.stringify(error));
-                        $rootScope.loading = false;
-                    }
-                )
-            },
-            function onError(error){
-                alert(JSON.stringify(error));
-                $rootScope.loading = false;
-            }
-        )
+
+        $scope.getSuperCharacter = function(character){
+            console.log(character);
+            $scope.heroTitle = character.title;
+            $scope.heroText = character.text;
+            marvelApi.Request("characters").pathParam(character.id).exec().then(
+                function onSuccess(result){
+                    $scope.superCharacter = result.data.data.results[0];
+                    marvelApi.Request("characters").pathParam(character.id).pathParam("comics").limit(24).exec().then(
+                        function onSuccess(result) {
+                            $scope.comics = result.data.data.results;
+                            $rootScope.loading = false;
+                        },
+                        function onError(error) {
+                            alert(JSON.stringify(error));
+                            $rootScope.loading = false;
+                        }
+                    )
+                },
+                function onError(error){
+                    alert(JSON.stringify(error));
+                    $rootScope.loading = false;
+                }
+            )
+        };
+        $scope.getSuperCharacter($scope.ironMan);
     })
     .controller("CreatorCtrl", function ($scope, marvelApi, $rootScope) {
 

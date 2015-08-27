@@ -105,7 +105,9 @@ footer {
     font-size: 190%; }
 
 .frieze {
-  margin-left: -25px;
+  overflow: hidden;
+  margin-left: -7.5px;
+  width: 100%;
   text-align: center; }
 
 @media (max-width: 768px) {
