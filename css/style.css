@@ -12,10 +12,11 @@ h1, h2, h3, h4, h5 {
   margin: 0; }
 
 .navbar {
-  height: 50px;
+  min-height: 30px;
+  height: 30px;
   padding: 0; }
   .navbar > * {
-    height: 50px; }
+    height: 30px; }
   .navbar img {
     height: 100%; }
   .navbar .navbar-header {
@@ -26,13 +27,13 @@ h1, h2, h3, h4, h5 {
       height: 100%;
       float: left; }
       .navbar .navbar-nav li a {
-        padding: 15px; }
+        padding: 5px 15px; }
     .navbar .navbar-nav .active {
       color: #FFFFFF; }
 
 .main > div {
   overflow: scroll;
-  padding: 50px 10px 15px 10px;
+  padding: 30px 10px 15px 10px;
   height: 100%;
   width: 100%; }
 
@@ -103,5 +104,21 @@ footer {
   text-align: center; }
   .creator-single .col-img img {
     max-width: 100%; }
+
+.comic-list .comic-list-element {
+  line-height: 100px; }
+  .comic-list .comic-list-element a {
+    display: block;
+    width: 100%;
+    height: 100%; }
+    .comic-list .comic-list-element a div {
+      max-width: 50%;
+      line-height: normal; }
+  .comic-list .comic-list-element * {
+    display: inline-block;
+    vertical-align: middle; }
+  .comic-list .comic-list-element:hover {
+    background: #e6e6e6;
+    cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,22 @@
+.comic-list{
+    .comic-list-element{
+        line-height: 100px; //Size of medium square from Marvel API
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            div {
+                max-width: 50%;
+                line-height: normal;
+            }
+        }
+        * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        &:hover{
+            background: $mainColor32;
+            cursor:pointer;
+        }
+    }
+}

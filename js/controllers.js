@@ -75,7 +75,28 @@ angular.module("marvel_test.controllers", ["marvel_test.services"])
         $scope.getCreator($stateParams.id);
 
     })
-    .controller("ComicCtrl", function () {
+    .controller("ComicCtrl", function ($scope, marvelApi, $rootScope) {
+        $scope.currentPage    = 1;
+        $scope.comicsByPage = 20;
+
+        $scope.getComics = function () {
+            console.log("Request");
+            $rootScope.loading = true;
+            marvelApi.Request("comics").queryParam("orderBy", "title").limit($scope.comicsByPage).offset(($scope.currentPage - 1) * $scope.comicsByPage).exec().then(
+                function onSuccess(result) {
+                    var datas          = result.data;
+                    console.log(datas);
+                    $scope.comics    = datas.data.results;
+                    $scope.total       = datas.data.total;
+                    $rootScope.loading = false;
+                },
+                function onError(error) {
+                    alert(JSON.stringify(error));
+                    $rootScope.loading = false;
+                }
+            )
+        };
+        $scope.getComics();
 
     })
 ;

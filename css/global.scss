@@ -20,8 +20,9 @@ $mainColor33 : lighten($mainColor31, 10%);
 
 
 $mainPadding : 10px;
-$navbarHeigth : 50px;
+$navbarHeigth : 30px;
 $footerHeigth : 15px;
+$navbarAPadding : 5px;
 
 
 
@@ -48,6 +49,7 @@ h1,h2,h3,h4,h5{
 // ------------------------ //
 
 .navbar{
+    min-height: $navbarHeigth;
     height:$navbarHeigth;
     padding: 0;
     > *{
@@ -65,7 +67,7 @@ h1,h2,h3,h4,h5{
             height: 100%;
             float: left;
             a {
-                padding:15px;
+                padding:$navbarAPadding 15px;
             }
         }
         .active {
