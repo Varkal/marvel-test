@@ -32,20 +32,29 @@ angular.module("marvel_test.controllers", ["marvel_test.services"])
 
         $scope.datas = {};
 
-        $scope.load = function (type) {
+        $scope.elementByPage = 20;
+
+        $scope.load = function (type, page) {
+            $rootScope.loading = true;
+            marvelApi.Request("creators").pathParam($stateParams.id).pathParam(type).limit($scope.elementByPage).offset($scope.elementByPage*(page-1)).exec().then(
+                function onSuccess(result) {
+                    $scope.datas[type] = {
+                        elements:result.data.data.results,
+                        page:page
+                    };
+                    console.log(result.data);
+                    $rootScope.loading = false;
+                },
+                function onError(error) {
+                    alert(JSON.stringify(error));
+                    $rootScope.loading = false;
+                }
+            )
+        };
+
+        $scope.initialLoading = function (type) {
             if (!$scope.datas[type]) {
-                $rootScope.loading = true;
-                marvelApi.Request("creators").pathParam($stateParams.id).pathParam(type).limit(100).exec().then(
-                    function onSuccess(result) {
-                        $scope.datas[type] = result.data.data.results;
-                        console.log(result.data);
-                        $rootScope.loading = false;
-                    },
-                    function onError(error) {
-                        alert(JSON.stringify(error));
-                        $rootScope.loading = false;
-                    }
-                )
+                $scope.load(type, 1)
             }
         };
 
