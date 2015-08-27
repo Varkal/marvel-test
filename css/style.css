@@ -68,6 +68,17 @@ footer {
   color: #e6e6e6;
   background: #000000; }
 
+.btn-custom {
+  background: #000000;
+  color: #FFFFFF;
+  margin-bottom: 10px; }
+  .btn-custom:hover {
+    color: #e6e6e6;
+    background: #1a1a1a; }
+
+.button-zone {
+  text-align: right; }
+
 .pagination-zone {
   text-align: center; }
   .pagination-zone li > a {

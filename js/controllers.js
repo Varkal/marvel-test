@@ -4,13 +4,42 @@ angular.module("marvel_test.controllers", ["marvel_test.services"])
     })
     .controller("CreatorCtrl", function ($scope, marvelApi, $rootScope) {
 
+        $scope.filterVisible=false;
+
         $scope.currentPage    = 1;
         $scope.creatorsByPage = 20;
+
+        $scope.defaultFilterObject = {
+            firstName : "",
+            lastName : ""
+        };
+
+        $scope.filterObject = _.clone($scope.defaultFilterObject);
+
+        $scope.toggleFilterVisible = function(){
+            $scope.filterVisible = !$scope.filterVisible;
+        };
+
+        $scope.resetForm = function(){
+            $scope.filterObject = _.clone($scope.defaultFilterObject);
+        };
+
+        $scope.filter = function(){
+            $scope.currentPage = 1;
+            $scope.getCreators();
+        };
 
         $scope.getCreators = function () {
             console.log("Request");
             $rootScope.loading = true;
-            marvelApi.Request("creators").queryParam("orderBy", "firstName").limit($scope.creatorsByPage).offset(($scope.currentPage - 1) * $scope.creatorsByPage).exec().then(
+            var request = marvelApi.Request("creators").queryParam("orderBy", "firstName").limit($scope.creatorsByPage).offset(($scope.currentPage - 1) * $scope.creatorsByPage);
+            if($scope.filterObject.firstName != ""){
+                request.queryParam("firstNameStartsWith", $scope.filterObject.firstName)
+            }
+            if($scope.filterObject.lastName != ""){
+                request.queryParam("lastNameStartsWith", $scope.filterObject.lastName)
+            }
+            request.exec().then(
                 function onSuccess(result) {
                     var datas          = result.data;
                     console.log(datas);

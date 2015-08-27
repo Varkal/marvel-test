@@ -120,4 +120,18 @@ footer{
     color: $mainColor32;
     background: $mainColor11;
 }
-//
+
+.btn-custom{
+    background: $mainColor11;
+    color:$mainColor31;
+    &:hover{
+        color:$mainColor32;
+        background: $mainColor13;
+    }
+
+    margin-bottom: 10px;
+}
+
+.button-zone{
+    text-align: right;
+}
