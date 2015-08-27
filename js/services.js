@@ -1,6 +1,25 @@
 angular.module("marvel_test.services", [])
     .constant("key", "c1e15e338e12e2cae0d61b0c97c9873f")//Public Key
     .service("marvelApi", function($http, key, $q){
+
+        /**
+         * Get data from already builded url
+         * @param url
+         * @returns {*}
+         */
+        this.get = function(url){
+            var deferred = $q.defer();
+            $http.get(url+"?apikey="+key).then(
+                function onSuccess(result){
+                    deferred.resolve(result);
+                },
+                function onError(error){
+                    deferred.reject(error);
+                }
+            );
+            return deferred.promise;
+        };
+
         /**
          * Builder for a request to Marvel Comics API
          * @param resource Shorthand to specify the resource
@@ -99,7 +118,6 @@ angular.module("marvel_test.services", [])
             };
 
             return request;
-
         };
     })
 ;

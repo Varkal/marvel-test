@@ -1,3 +1,12 @@
+// ---- SIZES DEF ZONE ---- //
+
+
+$creatorSingleMarginTop : 10px;
+
+// ------------------------ //
+
+
+
 .pagination-zone{
     text-align: center;
     li > a {
@@ -20,9 +29,36 @@
 .creator-list{
     .creator-list-element{
         line-height: 100px; //Size of medium square from Marvel API
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+        }
         * {
             display: inline-block;
             vertical-align: middle;
         }
+        &:hover{
+            background: $mainColor32;
+            cursor:pointer;
+        }
     }
 }
+
+.creator-single{
+    .col-text{
+        margin-top: $creatorSingleMarginTop - 5px;
+        h1{
+            border-bottom: 2px solid black;
+        }
+    }
+    .col-img{
+        margin-top: $creatorSingleMarginTop;
+        text-align: center;
+        img{
+            max-width: 100%;
+        }
+    }
+}
+

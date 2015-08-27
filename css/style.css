@@ -8,6 +8,9 @@ html, body {
   width: 100%;
   padding: 0; }
 
+h1, h2, h3, h4, h5 {
+  margin: 0; }
+
 .navbar {
   height: 50px;
   padding: 0; }
@@ -57,6 +60,8 @@ html, body {
 footer {
   width: 100%;
   height: 15px;
+  position: fixed;
+  bottom: 0;
   text-align: center;
   font-size: 80%;
   color: #e6e6e6;
@@ -78,8 +83,25 @@ footer {
 
 .creator-list .creator-list-element {
   line-height: 100px; }
+  .creator-list .creator-list-element a {
+    display: block;
+    width: 100%;
+    height: 100%; }
   .creator-list .creator-list-element * {
     display: inline-block;
     vertical-align: middle; }
+  .creator-list .creator-list-element:hover {
+    background: #e6e6e6;
+    cursor: pointer; }
+
+.creator-single .col-text {
+  margin-top: 5px; }
+  .creator-single .col-text h1 {
+    border-bottom: 2px solid black; }
+.creator-single .col-img {
+  margin-top: 10px;
+  text-align: center; }
+  .creator-single .col-img img {
+    max-width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

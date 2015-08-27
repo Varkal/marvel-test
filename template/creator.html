@@ -1,10 +1,12 @@
 <div>
     <ul class="list-group list creator-list ">
         <li class="row list-group-item list-element creator-list-element" ng-repeat="creator in creators | orderBy : fullName" ng-if='creator.fullName != ""'>
+            <a ui-sref="creator_single({id:creator.id})">
                 <div class="">{{creator.fullName}}</div>
                 <div class="pull-right">
-                <img class="" src="{{creator.thumbnail.path}}/standard_medium.{{creator.thumbnail.extension}}">
+                    <img class="" src="{{creator.thumbnail.path}}/standard_medium.{{creator.thumbnail.extension}}">
                 </div>
+            </a>
         </li>
     </ul>
     <div class="pagination-zone">

@@ -1,0 +1,28 @@
+<div class="creator-single">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-img">
+            <img src="{{creator.thumbnail.path}}/portrait_incredible.{{creator.thumbnail.extension}}">
+        </div>
+        <div class="col-xs-12 col-sm-10 col-md-10 col-text">
+            <h1>{{creator.fullName}}</h1>
+            <accordion close-others="true">
+                <accordion-group>
+                    <accordion-heading>
+                        <span ng-click="load('series')">Series ({{creator.series.available}})</span>
+                    </accordion-heading>
+                    <ul>
+                        <li ng-repeat="serie in datas['series']">{{serie.title}}</li>
+                    </ul>
+                </accordion-group>
+                <accordion-group>
+                    <accordion-heading>
+                        <span ng-click="load('stories')">Stories ({{creator.stories.available}})</span>
+                    </accordion-heading>
+                    <ul>
+                        <li ng-repeat="story in datas['stories']">{{story.title}}</li>
+                    </ul>
+                </accordion-group>
+            </accordion>
+        </div>
+    </div>
+</div>

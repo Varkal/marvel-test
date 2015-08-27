@@ -12,6 +12,11 @@ angular.module("marvel_test", ["ui.router", "ui.bootstrap", "marvel_test.control
                 controller:"CreatorCtrl",
                 templateUrl: "template/creator.html"
             })
+            .state('creator_single', {
+                url: "/creator/:id",
+                controller:"CreatorSingleCtrl",
+                templateUrl: "template/creator_single.html"
+            })
             .state('comic', {
                 url: "/comic",
                 controller:"ComicCtrl",
