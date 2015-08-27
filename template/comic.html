@@ -1,15 +1,15 @@
 <div>
     <ul class="list-group list comic-list ">
-        <li class="row list-group-item list-element comic-list-element" ng-repeat="comic in comics | orderBy : title" ng-if='comic.title != ""'>
+        <li class="row list-group-item list-element comic-list-element" ng-repeat="comic in comics" ng-if='comic.title != ""'>
             <a ui-sref="comic_single({id:comic.id})">
                 <div class="">{{comic.title}}</div>
                 <div class="pull-right">
-                    <img class="" src="{{comic.thumbnail.path}}/standard_medium.{{comic.thumbnail.extension}}">
+                    <img class="" ng-src="{{comic.thumbnail.path}}/standard_medium.{{comic.thumbnail.extension}}">
                 </div>
             </a>
         </li>
     </ul>
     <div class="pagination-zone">
-        <pagination total-items="total" items-per-page="creatorsByPage" ng-model="currentPage" ng-change="getCreators()" max-size="5" ></pagination>
+        <pagination total-items="total" items-per-page="comicsByPage" ng-model="currentPage" ng-change="getComics()" max-size="5" ></pagination>
     </div>
 </div>

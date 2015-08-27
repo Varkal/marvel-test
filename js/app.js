@@ -1,4 +1,4 @@
-angular.module("marvel_test", ["ui.router", "ui.bootstrap", "marvel_test.controllers", "marvel_test.services"])
+angular.module("marvel_test", ["ngSanitize", "ui.router", "ui.bootstrap", "marvel_test.controllers", "marvel_test.services"])
     .config(function($stateProvider, $urlRouterProvider){
 
         $stateProvider
@@ -21,6 +21,11 @@ angular.module("marvel_test", ["ui.router", "ui.bootstrap", "marvel_test.control
                 url: "/comic",
                 controller:"ComicCtrl",
                 templateUrl: "template/comic.html"
+            })
+            .state('comic_single', {
+                url: "/comic/:id",
+                controller:"ComicSingleCtrl",
+                templateUrl: "template/comic_single.html"
             })
         ;
 

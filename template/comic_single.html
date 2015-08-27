@@ -1,0 +1,69 @@
+<div class="creator-single">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2 col-md-2 col-img">
+            <img src="{{comic.thumbnail.path}}/portrait_incredible.{{comic.thumbnail.extension}}">
+        </div>
+        <div class="col-xs-12 col-sm-10 col-md-10 col-text">
+            <h1>{{comic.title}}</h1>
+            <accordion close-others="true">
+                <accordion-group is-open="true">
+                    <accordion-heading>
+                        <div>Description</div>
+                    </accordion-heading>
+                    <p ng-bind-html="comic.description">
+
+                    </p>
+                    <ul>
+                        <li ng-if="comic.isbn">ISBN : {{comic.isbn}}</li>
+                        <li ng-if="comic.issn">ISSN : {{comic.issn}}</li>
+                        <li ng-if="comic.ean">EAN : {{comic.ean}}</li>
+                        <li ng-if="comic.upc">UPC : {{comic.upc}}</li>
+                        <li ng-if="comic.format">Format : {{comic.format}}</li>
+                        <li ng-if="comic.pageCount">Pages : {{comic.pageCount}}</li>
+                    </ul>
+                </accordion-group>
+                <accordion-group ng-if="comic.series.available > 0">
+                    <accordion-heading>
+                        <div ng-click="initialLoading('series')">Series ({{comic.series.available}})</div>
+                    </accordion-heading>
+                    <ul>
+                        <li ng-repeat="serie in datas['series'].elements">{{serie.title}}</li>
+                    </ul>
+                    <div class="pagination-zone">
+                        <pagination total-items="comic.series.available" items-per-page="elementByPage" ng-model="datas['series'].page" ng-change="load('series', datas['series'].page)" max-size="3" ></pagination>
+                    </div>
+                </accordion-group>
+                <accordion-group ng-if="comic.characters.available > 0">
+                    <accordion-heading>
+                        <div ng-click="initialLoading('characters')">Characters ({{comic.characters.available}})</div>
+                    </accordion-heading>
+                    <ul>
+                        <li ng-repeat="character in datas['characters'].elements">{{character.name}}</li>
+                    </ul>
+                    <div class="pagination-zone">
+                        <pagination total-items="comic.series.available" items-per-page="elementByPage" ng-model="datas['series'].page" ng-change="load('series', datas['series'].page)" max-size="3" ></pagination>
+                    </div>
+                </accordion-group>
+                <accordion-group ng-if="comic.creators.available > 0">
+                    <accordion-heading>
+                        <div>Creators ({{comic.creators.available}})</div>
+                    </accordion-heading>
+                    <ul>
+                        <li ng-repeat="creator in comic.creators.items | orderBy : 'name'"><a ui-sref="creator_single({id:creator.id})">{{creator.name}}</a> - {{creator.role}}</li>
+                    </ul>
+                </accordion-group>
+                <accordion-group ng-if="comic.stories.available > 0">
+                    <accordion-heading>
+                        <div ng-click="initialLoading('stories')">Stories ({{comic.stories.available}})</div>
+                    </accordion-heading>
+                    <ul>
+                        <li ng-repeat="story in datas['stories'].elements">{{story.title}}</li>
+                    </ul>
+                    <div class="pagination-zone">
+                        <pagination total-items="comic.stories.available" items-per-page="elementByPage" ng-model="datas['stories'].page" ng-change="load('stories', datas['stories'].page)" max-size="3" ></pagination>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+    </div>
+</div>
