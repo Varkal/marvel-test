@@ -51,8 +51,8 @@ list are paginated
 
 The informations in the API aren't perfect, so I propose you example of page with interesting informations :   
 
-A creator with many informations ? [Aaron Lopresti](http://varkal.com/marvel/#/creator/540)
-A comics with many informations ? [ACTS OF VENGEANCE CROSSOVERS OMNIBUS (Hardcover)](http://varkal.com/marvel/#/comic/29317)
+- A creator with many informations ? [Aaron Lopresti](http://varkal.com/marvel/#/creator/540)
+- A comics with many informations ? [ACTS OF VENGEANCE CROSSOVERS OMNIBUS (Hardcover)](http://varkal.com/marvel/#/comic/29317)
 
 
 
