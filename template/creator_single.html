@@ -22,7 +22,7 @@
                         <div ng-click="initialLoading('comics')">Comics ({{creator.comics.available}})</div>
                     </accordion-heading>
                     <ul>
-                        <li ng-repeat="comic in datas['comics'].elements">{{comic.title}}</li>
+                        <li ng-repeat="comic in datas['comics'].elements"><a ui-sref="comic_single({id:comic.id})">{{comic.title}}</a></li>
                     </ul>
                     <div class="pagination-zone">
                         <pagination total-items="creator.comics.available" items-per-page="elementByPage" ng-model="datas['comics'].page" ng-change="load('comics', datas['comics'].page)" max-size="3" ></pagination>
